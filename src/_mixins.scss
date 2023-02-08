@@ -3,6 +3,7 @@
 // ============================================================================================= //
 
 @use "sass:meta";
+@use "sass:map";
 @use "@sass-collective/css";
 @use "@unsass/breakpoint";
 @use "./config";
@@ -76,6 +77,15 @@
     // --------------------------------- //
 
     @each $key, $value in breakpoint.$extend {
+        @if map.has-key(variables.$screen-gaps, $key) {
+            $screen-gaps: map.get(variables.$screen-gaps, $key);
+            @if map.has-key($screen-gaps, 'column-gap') {
+                column-gap: map.get($screen-gaps, 'column-gap');
+            }
+            @if map.has-key($screen-gaps, 'row-gap') {
+                row-gap: map.get($screen-gaps, 'row-gap');
+            }
+        }
         @include breakpoint.up($key) {
             @at-root {
                 @include css.selector(".grid-flow-col", $key) {

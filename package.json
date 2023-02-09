@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@sass-collective/css": "^3.0.0",
-        "@unsass/breakpoint": "^2.1.2",
+        "@foTYPE/breakpoint": "github:foTYPE/breakpoint",
         "sass": "^1.52.3"
     },
     "keywords": [
